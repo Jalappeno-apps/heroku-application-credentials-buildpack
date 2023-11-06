@@ -5,8 +5,16 @@ BUILD_DIR=${1:-}
 CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 
-echo "------> Generating .profile.d file to generate google-credentials.json at startup"
+echo "------> Generating .profile.d file to generate x-credentials.json at startup"
 mkdir -p $BUILD_DIR/.profile.d
-CREDENTIALS=$(cat ${ENV_DIR}/GOOGLE_CREDENTIALS)
-echo "echo ${CREDENTIALS@Q} > /app/google-credentials.json" > $BUILD_DIR/.profile.d/google-credentials.sh
+GOOGLE_CREDENTIALS=$(cat ${ENV_DIR}/GOOGLE_CREDENTIALS)
+PASSKIT_PRIVATE_P12_CERTIFICATE=$(cat ${ENV_DIR}/PASSKIT_PRIVATE_P12_CERTIFICATE_FILE)
+PASSKIT_APPLE_INTERMEDIATE_CERTIFICATE=$(cat ${ENV_DIR}/PASSKIT_APPLE_INTERMEDIATE_CERTIFICATE_FILE)
+
+echo "echo ${GOOGLE_CREDENTIALS} > /app/google-credentials.json" > $BUILD_DIR/.profile.d/google-credentials.sh
+echo "echo ${PASSKIT_PRIVATE_P12_CERTIFICATE} > /app/passkit-pvt-p12-cert.p12" > $BUILD_DIR/.profile.d/passkit-pvt-p12-cert.sh
+echo "echo ${PASSKIT_APPLE_INTERMEDIATE_CERTIFICATE} > /app/AppleWWDRCAG6.cer" > $BUILD_DIR/.profile.d/passkit-apple-imd-cert.sh
+
 chmod +x $BUILD_DIR/.profile.d/google-credentials.sh
+chmod +x $BUILD_DIR/.profile.d/passkit-pvt-p12-cert.sh
+chmod +x $BUILD_DIR/.profile.d/passkit-apple-imd-cert.sh
