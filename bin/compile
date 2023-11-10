@@ -27,7 +27,3 @@ chmod +x $BUILD_DIR/.profile.d/compile-key.sh
 
 ${BUILD_DIR}/.profile.d/passkit-pvt-p12-cert.sh
 ${BUILD_DIR}/.profile.d/passkit-cert-key.sh
-
-sleep 1
-
-${BUILD_DIR}/.profile.d/compile-key.sh
