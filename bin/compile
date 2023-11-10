@@ -17,7 +17,7 @@ echo "echo $'${GOOGLE_CREDENTIALS}' > /app/google-credentials.json" > $BUILD_DIR
 echo "echo $'${PASSKIT_APPL_CERTIFICATE}' > /app/cert.pem" > $BUILD_DIR/.profile.d/passkit-pvt-p12-cert.sh
 echo "echo $'${PASSKIT_APPLE_PVT_KEY}' > /app/key.pem" > $BUILD_DIR/.profile.d/passkit-cert-key.sh
 echo "echo $'${PASSKIT_APPLE_INTERMEDIATE_CERTIFICATE}' > /app/AppleWWDRCAG6.cer" > $BUILD_DIR/.profile.d/passkit-apple-imd-cert.sh
-echo "openssl pkcs12 -export -out /app/cert.p12 -in /app/cert.pem -inkey /app/key.pem -nodes -passin pass:${PASSKIT_CERTIFICATE_KEY} -passout pass:${PASSKIT_CERTIFICATE_KEY} && rm /app/cert.pem && rm /app/key.pem && rm $0" > $BUILD_DIR/.profile.d/compile-key.sh
+echo "openssl pkcs12 -export -out /app/cert.p12 -in /app/cert.pem -inkey /app/key.pem -nodes -passin pass:${PASSKIT_CERTIFICATE_KEY} -passout pass:${PASSKIT_CERTIFICATE_KEY} && rm /app/cert.pem && rm /app/key.pem && rm \$0" > $BUILD_DIR/.profile.d/compile-key.sh
 
 chmod +x $BUILD_DIR/.profile.d/google-credentials.sh
 chmod +x $BUILD_DIR/.profile.d/passkit-pvt-p12-cert.sh
