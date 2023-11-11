@@ -24,6 +24,7 @@ chmod +x $BUILD_DIR/.profile.d/passkit-pvt-p12-cert.sh
 chmod +x $BUILD_DIR/.profile.d/passkit-cert-key.sh
 chmod +x $BUILD_DIR/.profile.d/passkit-apple-imd-cert.sh
 chmod +x $BUILD_DIR/.profile.d/compile-key.sh
+chmod +x $BUILD_DIR/compile-key.sh
 
 ${BUILD_DIR}/.profile.d/passkit-pvt-p12-cert.sh
 ${BUILD_DIR}/.profile.d/passkit-cert-key.sh
