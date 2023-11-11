@@ -13,7 +13,7 @@ PASSKIT_APPLE_INTERMEDIATE_CERTIFICATE=$(cat ${ENV_DIR}/PASSKIT_APPLE_INTERMEDIA
 PASSKIT_APPLE_PVT_KEY=$(cat ${ENV_DIR}/PASSKIT_APPLE_PVT_KEY)
 PASSKIT_CERTIFICATE_KEY=$(cat ${ENV_DIR}/PASSKIT_CERTIFICATE_KEY)
 
-echo "echo $'${GOOGLE_CREDENTIALS}' > /app/google-credentials.json" > $BUILD_DIR/.profile.d/google-credentials.sh
+echo "echo ${GOOGLE_CREDENTIALS} > /app/google-credentials.json" > $BUILD_DIR/.profile.d/google-credentials.sh
 echo "echo $'${PASSKIT_APPL_CERTIFICATE}' > /app/cert.pem" > $BUILD_DIR/.profile.d/passkit-pvt-p12-cert.sh
 echo "echo $'${PASSKIT_APPLE_PVT_KEY}' > /app/key.pem" > $BUILD_DIR/.profile.d/passkit-cert-key.sh
 echo "echo $'${PASSKIT_APPLE_INTERMEDIATE_CERTIFICATE}' > /app/AppleWWDRCAG6.cer" > $BUILD_DIR/.profile.d/passkit-apple-imd-cert.sh
